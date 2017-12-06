@@ -1,0 +1,87 @@
+<html ng-app="demoApp">
+    <head>
+       <script src="angular.js"></script>
+        <script src="app.js"></script>
+        <script src="firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBd9u9KIvT5CusrOjdvdSQ3SsrrQIiVdSw",
+            authDomain: "task-657ce.firebaseapp.com",
+            databaseURL: "https://task-657ce.firebaseio.com",
+            projectId: "task-657ce",
+            storageBucket: "",
+            messagingSenderId: "251878699615"
+          };
+          firebase.initializeApp(config);
+        </script>
+        <script src="localforage.js"></script>
+        <script src="angularfire.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <style>
+           
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+  
+}
+</style>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+</head>
+    <body ng-controller="demoCtrl as demo">
+<input type="text" style="width:1070px;margin-left:10%;" ng-model="demo.in" placeholder="Search" >
+<button data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-danger btn-circle btn-xl" ><i class="glyphicon glyphicon-plus"></i></button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title modal-primary" id="exampleModalLabel">Add Photo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Example file input</label>
+                              <input type="file" class="form-control-file" id="files">
+                            </div>
+                    </form>
+                    <button type="button" id="uploadButton" class="btn btn-secondary"  ng-click="demo.uploadFile()">upload</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button"  class="btn btn-secondary" data-dismiss="modal" >Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+          })
+        </script>
+        <img id="banner" height="150" width="150"  ng-src="" alt="hello">
+    </body>
+</html>
